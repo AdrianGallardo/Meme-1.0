@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	@IBOutlet weak var txtfTop: UITextField!
 	@IBOutlet weak var txtfBottom: UITextField!
 	@IBOutlet weak var btnShare: UIBarButtonItem!
+	@IBOutlet weak var btnCancel: UIBarButtonItem!
 	@IBOutlet weak var bottomToolbar: UIToolbar!
 	@IBOutlet weak var upperToolbar: UIToolbar!
 	
@@ -104,6 +105,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		
 		self.present(ac, animated: true, completion: nil)
 	}
+	
+	@IBAction func cancel(_ sender: Any) {
+		self.image.image = nil
+		self.txtfTop.text = "TOP"
+		self.txtfBottom.text = "BOTTOM"
+		self.btnShare.isEnabled = false
+	}
+	
 
 	//MARK: - Auxiliar Functions
 	func subscribeToKeyboardNotifications() {

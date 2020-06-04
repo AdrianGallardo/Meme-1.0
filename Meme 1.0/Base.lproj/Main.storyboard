@@ -59,6 +59,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="j7o-vO-eBM"/>
+                                    <barButtonItem title="Cancel" id="aXt-cc-aj3">
+                                        <connections>
+                                            <action selector="cancel:" destination="BYZ-38-t0r" id="W2n-hA-U62"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -83,6 +88,7 @@
                     <connections>
                         <outlet property="bottomToolbar" destination="xUn-BD-A28" id="Ay1-aQ-TUy"/>
                         <outlet property="btnCamera" destination="cVh-c5-23v" id="G49-cT-kmL"/>
+                        <outlet property="btnCancel" destination="aXt-cc-aj3" id="9Bx-DF-UAa"/>
                         <outlet property="btnFile" destination="ZYU-85-YK0" id="1oT-VO-hmu"/>
                         <outlet property="btnShare" destination="9nh-aK-dZ3" id="BCv-4J-qhr"/>
                         <outlet property="image" destination="nFZ-0F-N8u" id="hmf-hi-fRj"/>
