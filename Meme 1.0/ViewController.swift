@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
 	//MARK: - Outlets
 	@IBOutlet weak var image: UIImageView!
@@ -37,6 +37,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		self.txtfTop.delegate = self
+		self.txtfBottom.delegate = self
 		
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.alignment = .center
@@ -75,6 +78,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		dismiss(animated: true, completion: nil)
 		
 		btnShare.isEnabled = false
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
 	}
 	
 	//MARK: - Actions
