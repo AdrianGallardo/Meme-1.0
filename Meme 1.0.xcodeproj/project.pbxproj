@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7547CC27248865B300BB6563 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547CC26248865B300BB6563 /* Meme.swift */; };
 		75DD62B7248864DF0018A51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD62B6248864DF0018A51F /* AppDelegate.swift */; };
 		75DD62B9248864DF0018A51F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD62B8248864DF0018A51F /* SceneDelegate.swift */; };
 		75DD62BB248864DF0018A51F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD62BA248864DF0018A51F /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7547CC26248865B300BB6563 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		75DD62B3248864DF0018A51F /* Meme 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DD62B6248864DF0018A51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75DD62B8248864DF0018A51F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		75DD62B5248864DF0018A51F /* Meme 1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				7547CC26248865B300BB6563 /* Meme.swift */,
 				75DD62B6248864DF0018A51F /* AppDelegate.swift */,
 				75DD62B8248864DF0018A51F /* SceneDelegate.swift */,
 				75DD62BA248864DF0018A51F /* ViewController.swift */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75DD62BB248864DF0018A51F /* ViewController.swift in Sources */,
+				7547CC27248865B300BB6563 /* Meme.swift in Sources */,
 				75DD62B7248864DF0018A51F /* AppDelegate.swift in Sources */,
 				75DD62B9248864DF0018A51F /* SceneDelegate.swift in Sources */,
 			);

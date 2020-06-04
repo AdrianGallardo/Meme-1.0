@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Meme 1.0
+//  ImageSelector
 //
-//  Created by Adrian Gallardo on 03/06/20.
+//  Created by Adrian Gallardo on 29/05/20.
 //  Copyright © 2020 adriangallardo. All rights reserved.
 //
 

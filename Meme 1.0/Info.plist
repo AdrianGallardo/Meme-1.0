@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to take pictures</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Need library acces to save an image</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need library acces to select an image</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
