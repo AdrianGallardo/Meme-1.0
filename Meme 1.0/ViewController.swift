@@ -21,6 +21,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	@IBOutlet weak var bottomToolbar: UIToolbar!
 	@IBOutlet weak var upperToolbar: UIToolbar!
 	
+	let memeTextAttributes: [NSAttributedString.Key: Any] = [
+		NSAttributedString.Key.strokeColor: UIColor.black,
+		NSAttributedString.Key.foregroundColor: UIColor.white,
+		NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+		NSAttributedString.Key.strokeWidth: -3.0
+	]
+	
 	//MARK: - Life cycle
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -37,30 +44,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		self.txtfTop.delegate = self
-		self.txtfBottom.delegate = self
-		
-		let paragraph = NSMutableParagraphStyle()
-		paragraph.alignment = .center
-		
-		let memeTextAttributes: [NSAttributedString.Key: Any] = [
-			NSAttributedString.Key.strokeColor: UIColor.black,
-			NSAttributedString.Key.foregroundColor: UIColor.white,
-			NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-			NSAttributedString.Key.strokeWidth: -3.0
-			
-		]
-		txtfTop.defaultTextAttributes = memeTextAttributes
-		txtfBottom.defaultTextAttributes = memeTextAttributes
-		
-		txtfTop.textAlignment = NSTextAlignment.center
-		txtfBottom.textAlignment = NSTextAlignment.center
-		
-		txtfTop.attributedText = NSAttributedString(string: "TOP",
-																									 attributes: [.paragraphStyle: paragraph])
-		txtfBottom.attributedText = NSAttributedString(string: "BOTTOM",
-																								 attributes: [.paragraphStyle: paragraph])
+		setupTextField(txtfTop, "TOP")
+		setupTextField(txtfBottom, "BOTTOM")
 	}
 	
 	//MARK: - Delegate Methods
@@ -87,17 +72,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	
 	//MARK: - Actions
 	@IBAction func pickAnImageFromFile(_ sender: Any) {
-		let imagePicker = UIImagePickerController()
-		imagePicker.delegate = self
-		imagePicker.sourceType = .photoLibrary
-		present(imagePicker, animated: true, completion: nil)
+		pickFromSource(.photoLibrary)
 	}
 	
 	@IBAction func pickAnImageFromCamera(_ sender: Any) {
-		let imagePicker = UIImagePickerController()
-		imagePicker.delegate = self
-		imagePicker.sourceType = .camera
-		present(imagePicker, animated: true, completion: nil)
+		pickFromSource(.camera)
 	}
 	
 	@IBAction func shareMeme(_ sender: Any) {
@@ -123,6 +102,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	
 
 	//MARK: - Auxiliar Functions
+	func pickFromSource(_ source: UIImagePickerController.SourceType) {
+		let imagePicker = UIImagePickerController()
+		imagePicker.delegate = self;
+		imagePicker.sourceType = source
+		present(imagePicker, animated: true, completion: nil)
+	}
+	
 	func subscribeToKeyboardNotifications() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -171,7 +157,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	}
 	
 	func save() {
-		let meme = Meme(originalImage: image.image!, topText:  txtfTop.text!, bottomText: txtfBottom.text!, memedImage: generateMemedImage())
+		_ = Meme(originalImage: image.image!, topText:  txtfTop.text!, bottomText: txtfBottom.text!, memedImage: generateMemedImage())
+	}
+	
+	func setupTextField(_ textField: UITextField, _ defaultText: String) {
+		textField.delegate = self
+		textField.textAlignment = .center
+		textField.defaultTextAttributes = memeTextAttributes
+		textField.textAlignment = .center
+		textField.text = defaultText
 	}
 	
 }
